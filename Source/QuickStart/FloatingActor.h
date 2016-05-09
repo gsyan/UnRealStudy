@@ -23,7 +23,12 @@ public:
 	virtual void PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent) override;
 #endif
 
+	UFUNCTION(BlueprintCallable, Category = "Damage")
 	void CalculateDamagePerSecond();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Damage")
+	void CalledFromCpp();
+
 
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;

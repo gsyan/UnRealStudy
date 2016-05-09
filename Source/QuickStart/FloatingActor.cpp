@@ -27,10 +27,17 @@ void AFloatingActor::PostInitProperties()
 	CalculateDamagePerSecond();
 }
 
+
 void AFloatingActor::CalculateDamagePerSecond()
 {
 	DamagePerSecond = TotalDamage / DamageTimeInSeconds;
 }
+
+//void AFloatingActor::CalledFromCpp_Implementation()
+//{
+//	//내용 구현
+//}
+
 
 #if WITH_EDITOR
 void AFloatingActor::PostEditChangeProperty(FPropertyChangedEvent& PropertyChangedEvent)
@@ -43,6 +50,7 @@ void AFloatingActor::PostEditChangeProperty(FPropertyChangedEvent& PropertyChang
 
 // Called every frame
 void AFloatingActor::Tick( float DeltaTime )
+
 {
 	Super::Tick( DeltaTime );
 
