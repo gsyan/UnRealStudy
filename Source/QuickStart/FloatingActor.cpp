@@ -19,6 +19,28 @@ AFloatingActor::AFloatingActor()
 void AFloatingActor::BeginPlay()
 {
 	Super::BeginPlay();
+
+	
+	for (TObjectIterator<UObject> it; it; ++it)
+	{
+		UObject* currentObject = *it;
+		UE_LOG(LogTemp, Log, TEXT("Found UObject named: %s"), *(currentObject->GetName()));
+	}
+
+	
+	/*APlayerController* MyPC = GetMyPlayerControllerFromSomewhere();
+	UWorld World = MyPC->GetWorld();
+	for (TActorIterator<AFloatingActor> it(World); it; ++it)
+	{
+		AActor* currentActor = *it;
+		UE_LOG(LogTemp, Log, TEXT("Found AActor named: %s"), *(currentActor->GetName()));
+	}*/
+
+
+
+
+
+	//UE_LOG(LogTemp, Log, TEXT("Found UObject named: %s"), *this->GetName());
 }
 
 void AFloatingActor::PostInitProperties()
@@ -59,6 +81,11 @@ void AFloatingActor::Tick( float DeltaTime )
 	NewLocation.Z += DeltaHeight * 20.0f;       //높이에 20 을 곱합니다
 	RunningTime += DeltaTime;
 	SetActorLocation(NewLocation);
+
+	
+
+	
+	//UE_LOG(LogTemp, Log, TEXT("Found UObject named: %s"), TEXT("why") );
 
 }
 
